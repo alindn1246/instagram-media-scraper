@@ -65,11 +65,20 @@ const getInstagramGraphqlData = async (url) => {
     thumbnail_src: items?.thumbnail_src,
     clips_music_attribution_info: items?.clips_music_attribution_info,
     sidecar: items?.edge_sidecar_to_children?.edges,
+    // Engagement metrics
+    like_count: items?.edge_media_preview_like?.count,
+    comment_count: items?.edge_media_to_parent_comment?.count,
+    comments: items?.edge_media_to_parent_comment?.edges?.map(edge => ({
+      text: edge?.node?.text,
+      owner: edge?.node?.owner?.username,
+      created_at: edge?.node?.created_at,
+      like_count: edge?.node?.edge_liked_by?.count
+    }))
   }
 };
 
 (async() => {
   // Get data from instagram post or reel URL string
-  const data = await getInstagramGraphqlData("https://www.instagram.com/reel/DQFnBl0iWkb/?hl=en");
+  const data = await getInstagramGraphqlData("https://www.instagram.com/reel/DQMWPDqiH-m/");
   console.log(data);
 })();
