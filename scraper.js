@@ -1,5 +1,5 @@
-// Load from ENV
-process.loadEnvFile();
+// Load from .env into process.env
+require('dotenv').config();
 
 const _userAgent = process.env.USER_AGENT;
 const _cookie = process.env.COOKIE;

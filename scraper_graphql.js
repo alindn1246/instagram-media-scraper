@@ -1,5 +1,5 @@
-// Load from ENV
-process.loadEnvFile();
+// Load from .env into process.env
+require('dotenv').config();
 
 const _userAgent = process.env.USER_AGENT;
 const _xIgAppId = process.env.X_IG_APP_ID;
@@ -70,6 +70,6 @@ const getInstagramGraphqlData = async (url) => {
 
 (async() => {
   // Get data from instagram post or reel URL string
-  const data = await getInstagramGraphqlData("https://www.instagram.com/reel/CtjoC2BNsB2");
+  const data = await getInstagramGraphqlData("https://www.instagram.com/reel/DQFnBl0iWkb/?hl=en");
   console.log(data);
 })();
