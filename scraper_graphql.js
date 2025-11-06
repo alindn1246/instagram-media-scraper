@@ -42,6 +42,7 @@ const getInstagramGraphqlData = async (url) => {
   const json = await response.json();
   const items = json?.data?.xdt_shortcode_media; 
   // You can return the entire items or create your own JSON object from them
+  console.log('Raw response:', JSON.stringify(json, null, 2));
   // return items;
 
   // Return custom json object
@@ -79,6 +80,6 @@ const getInstagramGraphqlData = async (url) => {
 
 (async() => {
   // Get data from instagram post or reel URL string
-  const data = await getInstagramGraphqlData("https://www.instagram.com/reel/DQMWPDqiH-m/");
+  const data = await getInstagramGraphqlData("https://www.instagram.com/reel/CxycaW6v0zK/");
   console.log(data);
 })();

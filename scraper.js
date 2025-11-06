@@ -75,6 +75,6 @@ const getInstagramData = async (url) => {
 
 (async() => {
   // Get data from instagram post or reel URL string
-  const data = await getInstagramData("https://www.instagram.com/reel/DQFnBl0iWkb/?hl=en");
+  const data = await getInstagramData("https://www.instagram.com/reel/CxycaW6v0zK/");
   console.log(data);
 })();
